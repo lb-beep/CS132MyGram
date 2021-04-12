@@ -1,0 +1,31 @@
+﻿<form method="post" asp-route="LogAUser">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <label for="UserName">User Name</label>
+                </td>
+                <td>
+                    <input type="text" id="UserName" name="UserName"
+                           placeholder="Add your user name here " />
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    <label for="Password">Password:</label>
+                </td>
+                <td>
+                    <input type="password" id="Password" name="Password"
+                           placeholder="Add your password here " />
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Log User" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
