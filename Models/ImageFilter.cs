@@ -3,7 +3,7 @@ namespace CS132MyGram.Models
 {
     public class Image
     {
-        public Image()
+        public ImageFilter()
         {
         }
         public int ImageId { get; set; }
