@@ -4,12 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using CS132MyGram.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CS132MyGram.Controllers
 {
-    public class SignUpController : Controller
+    public class SignUpController : DbContext
     {
         private object firstName;
         private object lastName;
@@ -21,6 +22,12 @@ namespace CS132MyGram.Controllers
         {
             return View();
         }
+
+        private IActionResult View()
+        {
+            throw new NotImplementedException();
+        }
+
         [HttpPost]
         public IActionResult SignUp([FromForm]SignUp signUp)
         {
