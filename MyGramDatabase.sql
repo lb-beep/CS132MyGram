@@ -6,8 +6,12 @@ use MYGRAM;
 
 Drop table Image;
 
+CREATE USER 'MYGRAMUSER' IDENTIFIED BY 'Password1';
+
+GRANT SELECT ON MYGRAM.* TO 'MYGRAMUSER'@'%';
+
 Create Table Image(
-     ImageId          int          NOT NULL,
+     ImageId          int          NOT NULL auto_increment,
      ImageName        varchar(500) NOT NULL,
      ImagePath        varchar(500) NOT NULL,
      ImageDescription varchar(500) NOT NULL default "Description Test",
@@ -19,7 +23,7 @@ Create Table Image(
 );
 
 CREATE TABLE USER(
-      UserName  varchar(500),
+      UserName  varchar(500) auto_increment,
       password   varchar(500)
 );
 
@@ -151,8 +155,31 @@ CreatedOn )
 Values
 (20,"Image20","ImagePath20","ImageAltText20",curdate());
 
+CREATE INTO IMAGE 
+(ImageName, ImageDescription, ImagePrice, 
+CreatedById, CreatedOn);
+
+Values
+("Image 7", "Description 7", 5551, 5, curdate());
+
+Create Index IX_ImageName
+on Image(ImageName);
+
+Alter Table Image
+Drop index IX_ImageName;
+
 Select * From
 Image;
 
 select * from
 User;
+
+SELECT CASE WHEN ImageId=1 THEN "Id is 1"
+WHEN ImageId=2 THEN "Id is 2" ELSE "Other ID" END AS ImageId,
+ImageName
+FROM
+ImageName
+GROUP BY 
+CASE WHEN ImageId=1 THEN "Id is 1"
+WHEN ImageId=2 THEN "Id is 2" ELSE "Other ID" END,
+ImageName;
